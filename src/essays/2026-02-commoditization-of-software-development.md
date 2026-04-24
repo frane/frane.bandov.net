@@ -1,7 +1,6 @@
 ---
 title: The commoditization of software development
 date: 2026-02-03
-summary: Coding agents are commoditizing software development, with a DIY tier emerging for the first time and the PM/engineer split starting to collapse into one role.
 ---
 
 # The commoditization of software development
