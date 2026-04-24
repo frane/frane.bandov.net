@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <link rel="alternate" type="application/rss+xml" title="Frane Bandov" href="/rss.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css">
+  <style>
+    /* -------------------------------------------------------
+       frane.bandov.net — single-file template
+       Edit nav links in the <nav> below.
+       ------------------------------------------------------- */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'EB Garamond', 'Georgia', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-wrapper {
+      max-width: 40em;
+      margin: 0 auto;
+      padding: 0 1.5em;
+      position: relative;
+    }
+
+
+    /* Left sidebar, text aligned right */
+    .site-nav {
+      position: fixed;
+      top: 2.5em;
+      left: calc((100vw - 40em) / 2 - 11em);
+      width: 8em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      gap: 0.6em;
+      font-size: 0.95em;
+    }
+
+    .site-nav a {
+      color: #888;
+      text-decoration: none;
+    }
+
+    .site-nav a:hover {
+      color: #1a7a7a;
+    }
+
+    .site-nav .site-name {
+      color: #1a7a7a;
+      font-weight: 600;
+      font-size: 1.15em;
+      margin-bottom: 0.4em;
+    }
+
+    .site-nav .site-name:hover {
+      color: #145f5f;
+    }
+
+    main {
+      margin: 2.5em 0;
+    }
+
+    h1 {
+      font-size: 1.6em;
+      font-weight: 600;
+      color: #1a7a7a;
+      margin-bottom: 0.6em;
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-size: 1.25em;
+      font-weight: 600;
+      color: #333;
+      margin-top: 1.8em;
+      margin-bottom: 0.5em;
+    }
+
+    h3 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: #444;
+      margin-top: 1.5em;
+      margin-bottom: 0.4em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    a {
+      color: #1a7a7a;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      color: #145f5f;
+    }
+
+    ul, ol {
+      margin-bottom: 1em;
+      padding-left: 1.5em;
+    }
+
+    li {
+      margin-bottom: 0.3em;
+    }
+
+    blockquote {
+      border-left: 3px solid #1a7a7a;
+      margin: 1.2em 0;
+      padding: 0.3em 1em;
+      color: #555;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 2em 0;
+    }
+
+    /* Code blocks */
+    pre {
+      background: #f6f6f6;
+      border: 1px solid #e0e0e0;
+      border-radius: 3px;
+      padding: 1em;
+      overflow-x: auto;
+      margin-bottom: 1.2em;
+      line-height: 1.5;
+    }
+
+    pre code {
+      font-family: 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
+      font-size: 0.68em;
+      background: none;
+      padding: 0;
+      border: none;
+    }
+
+    code {
+      font-family: 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
+      font-size: 0.85em;
+      background: #f0f0f0;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+    }
+
+    /* Essay listing */
+    .essay-item {
+      margin-bottom: 0.4em;
+    }
+
+    .essay-item time {
+      color: #888;
+      font-size: 0.9em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .essay-item a {
+      margin-left: 0.3em;
+    }
+
+    .essay-item .summary {
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    /* KaTeX display math spacing */
+    .katex-display {
+      margin: 1.2em 0;
+    }
+
+    /* Narrow screens: nav collapses to horizontal bar at top */
+    @media (max-width: 64em) {
+      .site-nav {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.2em;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        width: auto;
+      }
+
+      .site-nav .site-name {
+        margin-bottom: 0;
+        margin-right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site-wrapper">
+    <nav class="site-nav">
+      <a href="/" class="site-name">Frane Bandov</a>
+      <a href="/essays">Essays</a>
+      <a href="/about">About</a>
+      <a href="/rss.xml">RSS</a>
+      <a href="https://github.com/frane">GitHub</a>
+      <a href="https://x.com/fbandov">X</a>
+      <a href="https://bsky.app/profile/fbandov.bsky.social">Bluesky</a>
+      <a href="mailto:frane@offbyte.com">Email</a>
+    </nav>
+
+    <main>
+      {{content}}
+    </main>
+  </div>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"
+    onload="hljs.highlightAll();"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</body>
+</html>
