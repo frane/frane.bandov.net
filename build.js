@@ -125,8 +125,28 @@ function processList(html, index) {
 
 const template = fs.readFileSync(TEMPLATE_PATH, "utf-8");
 
-function render(title, contentHtml) {
-  return template.replace("{{title}}", () => title).replace("{{content}}", () => contentHtml);
+function render(title, contentHtml, metaHtml = "") {
+  return template
+    .replace("{{title}}", () => title)
+    .replace("{{meta}}", () => metaHtml)
+    .replace("{{content}}", () => contentHtml);
+}
+
+function pageMeta(data, rel, folder) {
+  const pageUrl = `${SITE.url}/${rel.split(path.sep).join("/")}`;
+  const lines = [
+    `<meta property="og:title" content="${escapeXml(data.title || SITE.title)}">`,
+    `<meta property="og:url" content="${pageUrl}">`,
+    `<meta property="og:type" content="${folder === "essays" ? "article" : "website"}">`,
+  ];
+  if (data.summary)
+    lines.push(`<meta property="og:description" content="${escapeXml(data.summary)}">`);
+  if (data.image) {
+    lines.push(`<meta property="og:image" content="${SITE.url}${data.image}">`);
+    lines.push(`<meta name="twitter:card" content="summary_large_image">`);
+    lines.push(`<meta name="twitter:image" content="${SITE.url}${data.image}">`);
+  }
+  return lines.join("\n  ");
 }
 
 // wipe output
@@ -172,7 +192,11 @@ for (const file of mdFiles) {
   const outPath = path.join(OUT, rel);
 
   mkdirp(path.dirname(outPath));
-  fs.writeFileSync(outPath, render(data.title || SITE.title, html));
+  const folder = path.dirname(path.relative(SRC, file));
+  fs.writeFileSync(
+    outPath,
+    render(data.title || SITE.title, html, pageMeta(data, rel, folder))
+  );
 }
 
 // essays listing page

@@ -1,9 +1,12 @@
 ---
 title: Meeseeks vs Minion Agents
 date: 2026-07-22
+image: /img/meeseeks-vs-minion-agents.jpg
 ---
 
 # Meeseeks vs Minion Agents
+
+![Meeseeks working on laptops and clipboards next to Minions gathered around a blueprint](/img/meeseeks-vs-minion-agents.jpg)
 
 By now we're not only working with agents, but with subagents, i.e. a small team that the main agent spawns that can take different roles like developer, reviewer, designer and so on. Usually, though, Claude will spawn more Claudes, Codex more Codexes, and while their formal roles might differ, the underlying model (weights, training, data) is the same.
 
